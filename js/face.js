@@ -3,14 +3,14 @@ $(document).ready(function(){
     autoplay: true,
     rtl: false,
     slidesToShow: 3,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 1500,
     speed: 1000,
     cssEase: 'ease',
     responsive: [
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         }
       }
     ]
@@ -19,14 +19,14 @@ $(document).ready(function(){
     autoplay: true,
     rtl: true,
     slidesToShow: 3,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3000,
     speed: 1000,
     cssEase: 'ease',
     responsive: [
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         }
       }
     ]
