@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.eyes').slick({
     autoplay: true,
+    arrows: false,
     rtl: false,
     slidesToShow: 3,
     autoplaySpeed: 1500,
@@ -17,6 +18,7 @@ $(document).ready(function(){
   });
   $('.mouthes').slick({
     autoplay: true,
+    arrows: false,
     rtl: true,
     slidesToShow: 3,
     autoplaySpeed: 3000,
