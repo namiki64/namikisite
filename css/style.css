@@ -1,14 +1,13 @@
 body {
-  margin: 0px;
+  margin: 0;
 }
 
 #info {
   background: white;
-  /* background: #00b0f0; */
   width: 100%;
 }
 
-#info h1 {
+h1 {
   color: black;
   text-align: center;
   font-size: 400%;
@@ -19,10 +18,41 @@ body {
   line-height: 1;
 }
 
+h2 {
+  color: black;
+  text-align: left;
+  font-size: 200%;
+  width: 100%;
+}
+
 #face div div {
   width: 100%;
   height: auto;
 }
 #face div div img {
   width: 100%;
+}
+
+#info .description {
+  padding: 20px 50px;
+  width: 100%;
+  background-color: rgb(170, 161, 178);
+}
+
+#info p {
+  width: 100%;
+}
+
+#info .description {
+  width: 100%;
+  background-color: white;
+}
+
+.eyecon {
+  height: 50px;
+  margin: 0 auto;
+}
+
+footer {
+  background: #00b0f0;
 }
