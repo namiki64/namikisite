@@ -16,6 +16,9 @@ h1 {
   margin: 0;
   padding: 100px 0;
   line-height: 0;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
 h2 {
@@ -24,6 +27,20 @@ h2 {
   font-size: 200%;
   width: 100%;
   margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h3 {
+  color: black;
+  text-align: left;
+  font-size: 150%;
+  width: 100%;
+  /* margin: 0; */
+  font-family: "Shippori Mincho", serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #face div div {
@@ -35,17 +52,20 @@ h2 {
 }
 
 #info {
-  padding: 100px;
+  padding: 10%;
 }
 
 #info .description {
-  padding: 20px 50px;
+  padding: 20px 0;
   width: 100%;
   background-color: white;
 }
 
 #info p {
   width: 100%;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .eyecon {
@@ -55,4 +75,34 @@ h2 {
 
 footer {
   background: #00b0f0;
+}
+
+.shippori-mincho-regular {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.shippori-mincho-medium {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.shippori-mincho-semibold {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.shippori-mincho-bold {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.shippori-mincho-extrabold {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 800;
+  font-style: normal;
 }
