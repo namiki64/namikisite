@@ -16,8 +16,8 @@ h1 {
   margin: 0;
   padding: 100px 0;
   line-height: 0;
-  font-family: "Shippori Mincho", serif;
-  font-weight: 800;
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -27,8 +27,8 @@ h2 {
   font-size: 200%;
   width: 100%;
   margin: 0;
-  font-family: "Shippori Mincho", serif;
-  font-weight: 600;
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -37,9 +37,8 @@ h3 {
   text-align: left;
   font-size: 150%;
   width: 100%;
-  /* margin: 0; */
-  font-family: "Shippori Mincho", serif;
-  font-weight: 500;
+  font-family: "BIZ UDPGothic", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -63,7 +62,7 @@ h3 {
 
 #info p {
   width: 100%;
-  font-family: "Shippori Mincho", serif;
+  font-family: "BIZ UDPGothic", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -75,34 +74,4 @@ h3 {
 
 footer {
   background: #00b0f0;
-}
-
-.shippori-mincho-regular {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.shippori-mincho-medium {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.shippori-mincho-semibold {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.shippori-mincho-bold {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.shippori-mincho-extrabold {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 800;
-  font-style: normal;
 }
