@@ -3,15 +3,9 @@ Parameters:
   DomainName:
     Description: 'Domain name'
     Type: 'String'
-
-Mappings:
-  RegionMap:
-    ap-northeast-1:
-      S3hostedzoneID: 'Z2M4EHUR26P7ZW'
-      WebsiteEndpoint: 's3-website-ap-northeast-1.amazonaws.com'
-    ap-northeast-3:
-      S3hostedzoneID: 'Z2YQB5RD63NC85'
-      WebsiteEndpoint: 's3-website.ap-northeast-3.amazonaws.com'
+  CertARN:
+    Description: 'ACM Certificate ARN'
+    Type: 'String'
 
 Resources:
   Route53HostedZone:
@@ -26,35 +20,80 @@ Resources:
     Properties:
       BucketName: !Ref DomainName
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: false
-        BlockPublicPolicy: false
-        IgnorePublicAcls: false
-        RestrictPublicBuckets: false
-      WebsiteConfiguration:
-        IndexDocument: 'index.html'
-        # ErrorDocument: 404.html
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      # WebsiteConfiguration: !Ref AWS::NoValue
+      #   # IndexDocument: 'index.html'
+      #   # ErrorDocument: 404.html
 
   S3BucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
       Bucket: !Ref S3Bucket
       PolicyDocument:
-        Version: '2012-10-17'
         Statement:
-          - Action:
-              - 's3:GetObject'
-            Effect: Allow
-            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
-            Principal: '*'
+        - Action: 's3:GetObject'
+          Effect: 'Allow'
+          Resource: !Sub '${S3Bucket.Arn}/*'
+          Principal:
+            Service: 'cloudfront.amazonaws.com'
+          Condition:
+            StringEquals:
+              AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}'
+
+  CloudFrontDistribution:
+    Type: 'AWS::CloudFront::Distribution'
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Ref DomainName
+        Comment: !Ref DomainName
+        # CustomErrorResponses:
+        #   - ErrorCachingMinTTL: 0
+        #     ErrorCode: 404
+        #     ResponseCode: 200
+        #     ResponsePagePath: /404/index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - 'GET'
+            - 'HEAD'
+          CachePolicyId: '658327ea-f89d-4fab-a63d-7e88639e58f6' # CachingOptimized
+          Compress: true
+          TargetOriginId: 'S3Origin'
+          ViewerProtocolPolicy: 'redirect-to-https'
+        Origins:
+          - Id: 'S3Origin'
+            DomainName: !GetAtt S3Bucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !GetAtt CloudFrontOriginAccessControl.Id
+        Enabled: true
+        DefaultRootObject: 'index.html'
+        HttpVersion: 'http2'
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertARN
+          MinimumProtocolVersion: 'TLSv1.2_2021'
+          SslSupportMethod: 'sni-only'
+        IPV6Enabled: true
+
+  CloudFrontOriginAccessControl:
+    Type: 'AWS::CloudFront::OriginAccessControl'
+    Properties:
+      OriginAccessControlConfig:
+        Name: 'S3OAC-site'
+        OriginAccessControlOriginType: 's3'
+        SigningBehavior: 'always'
+        SigningProtocol: 'sigv4'
 
   Route53RecordSet:
-    DeletionPolicy: 'Retain'
     Type: 'AWS::Route53::RecordSet'
     Properties:
       HostedZoneName: !Sub '${DomainName}.'
       Name: !Ref DomainName
       Type: 'A'
       AliasTarget:
-        HostedZoneId: !FindInMap [ RegionMap, !Ref 'AWS::Region', S3hostedzoneID]
-        DNSName: !FindInMap [ RegionMap, !Ref 'AWS::Region', WebsiteEndpoint]
-      Comment: 'root domain'
+        HostedZoneId: 'Z2FDTNDATAQYW2' # 固定
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+      Comment: 'website'

@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  DomainName:
+    Description: 'Domain name'
+    Type: 'String'
+  HostZoneId:
+    Description: 'HostZone ID'
+    Type: 'String'
+
+Resources:
+  # CloudFront用の証明書はバージニア北部で発行する必要がある
+  ACMCertificate:
+    Type: 'AWS::CertificateManager::Certificate'
+    Properties:
+      DomainName: !Ref DomainName
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostZoneId
+      SubjectAlternativeNames:
+        - !Sub '*.${DomainName}'
+      KeyAlgorithm: 'RSA_2048'
+      ValidationMethod: 'DNS'
+
+Outputs:
+  # リージョンをまたいでImportはできないけど、わかりやすいようにOutput
+  ACMCertificateArn:
+    Description: 'Global Region Certificate'
+    Value: !Ref ACMCertificate
+    Export:
+      Name: 'site-global-cert'
