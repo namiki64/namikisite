@@ -1,0 +1,43 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="manifest" href="../manifest.json")
+    link(rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png")
+    link(rel="stylesheet" href="../css/reset.css")
+    link(rel="stylesheet" href="../slick/slick.css")
+    link(rel="stylesheet" href="../slick/slick-theme.css")
+    link(rel="stylesheet" href="../css/style.css")
+
+    // fonts
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Bree+Serif&display=swap")
+    title KimuraNami
+  body
+    div#face
+      div.eyes
+        - var list = ["normal", "smile", "normal", "sleep", "normal", "komatta"]
+        each item in list
+          div
+            img(src="../img/face/eyes-" + item + ".png")
+      div(class="mouthes" dir="rtl")
+        - var list = ["normal", "smile", "boke", "normal", "sad", "smile"]
+        each item in list
+          div
+            img(src="../img/face/mouth-" + item + ".png")
+
+    // 可変部分
+    block content
+
+    //- p &copy; 2025 KimuraNami. All rights reserved.
+    footer
+      img.eyecon(src="../img/eyes.png")
+    script(type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.slim.min.js")
+    script(type="text/javascript" src="https://code.jquery.com/jquery-migrate-3.5.0.min.js")
+    script(type="text/javascript" src="../slick/slick.min.js")
+    script(type="text/javascript" src="../js/face.js")

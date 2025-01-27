@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "pug": "^3.0.3",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pug": "pug pug --out www/html pug/template.pug --pretty",
+    "pug-watch": "pug pug --out www/html --watch pug/* --pretty"
+  }
+}
