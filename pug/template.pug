@@ -15,26 +15,14 @@ html(lang="ja")
     // fonts
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&display=swap")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Bree+Serif&display=swap")
-    title KimuraNami
+    title namikimura
   body
-    div#face
-      div.eyes
-        - var list = ["normal", "smile", "normal", "sleep", "normal", "komatta"]
-        each item in list
-          div
-            img(src="../img/face/eyes-" + item + ".png")
-      div(class="mouthes" dir="rtl")
-        - var list = ["normal", "smile", "boke", "normal", "sad", "smile"]
-        each item in list
-          div
-            img(src="../img/face/mouth-" + item + ".png")
-
     // 可変部分
     block content
 
-    //- p &copy; 2025 KimuraNami. All rights reserved.
+    //- p &copy; 2025 namikimura. All rights reserved.
     footer
       img.eyecon(src="../img/eyes.png")
     script(type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.slim.min.js")

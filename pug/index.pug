@@ -2,20 +2,32 @@ extends template
 
 block content
   main
-    h1 KimuraNami
+    div#face
+      div.eyes
+        - var list = ["normal", "smile", "normal", "sleep", "normal", "komatta"]
+        each item in list
+          div
+            img(src="../img/face/eyes-" + item + ".png")
+      div(class="mouthes" dir="rtl")
+        - var list = ["normal", "smile", "boke", "normal", "sad", "smile"]
+        each item in list
+          div
+            img(src="../img/face/mouth-" + item + ".png")
+
+    h1 namikimura
     div#info
       div.description
-        h2 Works
+        h2 works
         a(href="works.html#design") グラフィックデザイン
         | /
         a(href="works.html#illustration") イラスト
         | /
         a(href="works.html#other") その他
       div.description
-        h2 Profile
+        h2 profile
         h3 木村奈美 Kimura Nami
         p.
-          香川県出身、京都府在住。本業はサーバーの構築・運用を担当するITインフラエンジニア。<br>
+          香川県出身、大阪府在住。本業はサーバーの構築・運用を担当するITインフラエンジニア。<br>
           「インターネットが好きだから」という理由で高専に進学したものの伸び悩み、適正のなさを感じながらも惰性でエンジニアになった。その後10年以上経って、自分が好きなのはインターネットを支える技術ではなく、その上に作られるコンテンツだったのだ、と気付きデザイナーを志す。<br>
           しかしこんなWebサイトを自前で作って公開するあたり、なんだかんだ経験を便利に活かしているらしい。
         div
@@ -23,5 +35,5 @@ block content
         div
           a(href="https://namiki.bandcamp.com/") 音楽作品（更新停滞中）
       div.description
-        h2 Contact
+        h2 contact
         a(href="https://forms.gle/Z9TyQtpeVMcctu9j6") お問い合わせフォーム
