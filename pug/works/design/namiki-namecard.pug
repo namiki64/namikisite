@@ -1,0 +1,22 @@
+include ../../_config
+
+doctype html
+html(lang="ja")
+  head
+    include ../../include/_head
+    title namikimura
+  body
+    h1 namecard
+    div#info
+      div.description
+        p 制作年: 2024年
+        p グラフィックデザイナーとして利用できる名刺をデザインしました。目の部分をエンボス加工とクリア箔で目立たせています。
+        div.detail
+          img(src=ROOT_PATH+"/img/works/design/namiki-namecard/meishi1.jpg", alt="全体像")
+          p 全体像
+        div.detail
+          img(src=ROOT_PATH+"/img/works/design/namiki-namecard/meishi2.jpg", alt="別角度から")
+          p 別角度から
+
+
+    include ../../include/_footer

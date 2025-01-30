@@ -92,8 +92,9 @@ footer {
 }
 
 .works img {
-  width: 100%;
+  width: 30vh;
   height: auto;
+  margin: auto;
   display: block;
 }
 
@@ -103,4 +104,18 @@ footer {
   display: block;
   text-align: center;
   margin-top: 0;
+}
+
+.detail {
+  text-align: center;
+}
+
+.detail img {
+  margin: auto;
+  margin-top: 4vh;
+}
+
+.detail p {
+  text-align: center;
+  margin-top: 1vh;
 }
