@@ -1,40 +1,53 @@
-extends template
-
-block content
-  main
+doctype html
+html(lang="ja")
+  head
+    include ./include/_head
+    title works - namikimura
+  body
     h1 works
     div#info
       div.description
         h2#design graphic design
         ul.works
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/namiki-namecard.html")
+              img(src="../img/works/design/namiki-namecard/thumb.jpg", alt="作品名")
             p 名刺
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/keion-poster.html")
+              img(src="../img/works/design/keion-poster/thumb.png", alt="作品名")
             p ポスター
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/namiki-icon.html")
+              img(src="../img/works/design/namiki-icon/thumb.png", alt="作品名")
             p アイコン
         h2#illustration illustration
         ul.works
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/illust/tenten.html")
+              img(src="../img/works/illust/tenten/thumb.png", alt="作品名")
             p 架空のゲームのキャラクターデザイン
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/illust/tenten.html")
+              img(src="../img/works/illust/tenten/thumb.png", alt="作品名")
             p なにか
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/illust/tenten.html")
+              img(src="../img/works/illust/tenten/thumb.png", alt="作品名")
             p なにか
         h2#other other
         ul.works
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/namiki-icon.html")
+              img(src="../img/works/other/live2d/thumb.png", alt="作品名")
             p Webサイト制作（デザイン、実装、サーバー構築）
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/namiki-icon.html")
+              img(src="../img/works/other/live2d/thumb.png", alt="作品名")
             p Live2Dアバター制作（キャラクターデザイン、イラスト、アバター実装）
           li
-            img(src="../img/works/thumb/logo.png", alt="作品名")
+            a(href="works/design/namiki-icon.html")
+              img(src="../img/works/other/live2d/thumb.png", alt="作品名")
             p なにか
+
+    include ./include/_footer

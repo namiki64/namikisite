@@ -1,7 +1,9 @@
-extends template
-
-block content
-  main
+doctype html
+html(lang="ja")
+  head
+    include ./include/_head
+    title namikimura
+  body
     div#face
       div.eyes
         - var list = ["normal", "smile", "normal", "sleep", "normal", "komatta"]
@@ -37,3 +39,6 @@ block content
       div.description
         h2 contact
         a(href="https://forms.gle/Z9TyQtpeVMcctu9j6") お問い合わせフォーム
+
+
+    include ./include/_footer
